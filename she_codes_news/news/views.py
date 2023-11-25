@@ -10,6 +10,7 @@ class IndexView(generic.ListView):
         '''Return all news stories.'''
         return NewsStory.objects.all()
 
+# kwargs = keyword arguments. This is a named argument in your function. 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['latest_stories'] = NewsStory.objects.all()[:4]
