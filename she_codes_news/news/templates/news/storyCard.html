@@ -1,5 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+<linkrel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{% endblock %}
+
+{% block content %}
 <div class="story-card" id="story-card-{{ position }}">
-    <a href="">
+    <a href="{% url 'news:story' story.id %}">
         {% if position < 5 %}
             <img src="../static/news/images/placeholder-{{ position }}.jpg">
         {% else %}
@@ -12,3 +20,4 @@
         </div>
     </a>
 </div>
+{% endblock %}
