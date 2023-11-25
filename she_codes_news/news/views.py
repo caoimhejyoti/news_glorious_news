@@ -15,3 +15,9 @@ class IndexView(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['latest_stories'] = NewsStory.objects.all()[:4]
         return context
+
+
+class StoryView(generic.DetailView):
+    model = NewsStory
+    template_name = 'new/story.html'
+    context_object_name = 'story'
