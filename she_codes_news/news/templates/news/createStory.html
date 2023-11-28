@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action = "" method = "post">
+    {% csrf_token %} {% comment %} security feature. Random token which is created and put on the page. This stops users creating multiple stories at one time. {% endcomment %}
+    {{form.as_p}} {% comment %} bringing in form object and will auto create the html {% endcomment %}
+    <input type="submit" value="submit">
+</form>
+{% endblock content %}
