@@ -1,4 +1,4 @@
-*Venv
+newsVenv
 venv/*
 __pycache__/
 *.sqlite3
