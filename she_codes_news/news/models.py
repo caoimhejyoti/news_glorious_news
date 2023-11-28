@@ -6,3 +6,5 @@ class NewsStory(models.Model):
     author = models.CharField(max_length=200)
     pub_date = models.DateTimeField()
     content = models.TextField()
+    class Meta:
+        ordering = ['-pub_date']
