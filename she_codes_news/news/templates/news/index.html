@@ -21,7 +21,7 @@
   <div id="all-stories">
     {% if latest_stories %} 
       {% for story in all_stories %}
-        {% include "./storyCard.html" with story=story position=forloop.counter%}
+        {% include "./storyCard.html" with story=story%}
       {% endfor %}
     {% else %}
       <p>No stories are available.</p>
