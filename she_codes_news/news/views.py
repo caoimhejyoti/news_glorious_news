@@ -19,7 +19,6 @@ class IndexView(generic.ListView):
         context['latest_stories'] = NewsStory.objects.all()[:4]
         return context
 
-
 class StoryView(generic.DetailView):
     model = NewsStory
     template_name = 'news/story.html'
@@ -30,3 +29,6 @@ class AddStoryView(generic.CreateView):
     context_object_name = 'storyform' #name used inside the template
     template_name='news/createStory.html'
     success_url = reverse_lazy('news:index') #on form success, take user back to index.
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
