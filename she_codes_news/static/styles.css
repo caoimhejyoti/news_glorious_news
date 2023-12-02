@@ -9,11 +9,11 @@
     /* ------------------COLOURS------------------ */
     /* CaoimheJyoti Brand Colours */
     /* Highlights */
-    --colour1: #01463c;
-    --colour2: #af1b3f;
-    --colour3: #ffcc7a;
-    --colour4: #9baeb2;
-    --colour5: #fffffc;
+    --colour1: #DF495E;
+    --colour2: #F39D47;
+    --colour3: #917BB0;
+    --colour4: #1C5752;
+    --colour5: #E0DEDB;
     /* Neutrals */
     --colour11: #06130f;
     --colour12: #4a5551;
@@ -85,7 +85,7 @@
     font-size: 1.953rem;
   }
   h4 {
-    color: var(--colour3);
+    color: var(--colour5);
     font-size: 1.563rem;
   }
   h5 {
@@ -93,7 +93,7 @@
     font-size: 1.25rem;
   }
   h6 {
-    color: var(--colour3);
+    color: var(--colour2);
     font-size: 0.8rem;
   }
   p {
@@ -114,8 +114,8 @@
 button,
 .button {
     padding: 0.8rem;
-    background-color: var(--colour3);
-    color: var(--colour1);
+    background-color: var(--colour4);
+    color: var(--colour2);
     border: none;
     border-radius: 0.4rem;
     font-family: var(--font-2);
