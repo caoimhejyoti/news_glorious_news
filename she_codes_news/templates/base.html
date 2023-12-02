@@ -21,7 +21,8 @@
     <header>
       <div id="header-text">
         <a id="header-link" href="{% url 'news:index' %}">
-          <h1>She {Codes} News</h1>
+          {%load static%}
+          <img class="logo" src="{%static "../static/assets/branding/News_Glorious_News_icon.png"%}" alt="News Glorious News Logo">
         </a>
       </div>
       {% include './nav.html' %}
