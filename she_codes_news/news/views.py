@@ -1,5 +1,6 @@
 from django.views import generic
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import NewsStory
 from .forms import StoryForm
 
@@ -15,16 +16,19 @@ class IndexView(generic.ListView):
 # kwargs = keyword arguments. This is a named argument in your function. 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['latest_stories'] = NewsStory.objects.all().order_by("-pub_date")[:4]
-        context['latest_stories'] = NewsStory.objects.all()[:4]
+        context['latest_stories'] = NewsStory.objects.all().order_by("-pub_date")[:4]
+        # context['latest_stories'] = NewsStory.objects.all()[:4]
         return context
 
 class StoryView(generic.DetailView):
     model = NewsStory
     template_name = 'news/story.html'
     context_object_name = 'story'
+    # TODO:filter to only show dates in the past/today
+    # only can view future if the author is yours. 
 
-class AddStoryView(generic.CreateView):
+class AddStoryView(LoginRequiredMixin, generic.CreateView):
+    login_url = "login"
     form_class = StoryForm
     context_object_name = 'storyform' #name used inside the template
     template_name='news/createStory.html'
