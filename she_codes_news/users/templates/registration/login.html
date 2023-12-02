@@ -7,7 +7,7 @@
         {{form.as_p}}
         <button type="submit">Login</button>
     </form>
-    <p>Don't have an account - don't worry!
-    <br>
+    <p>Don't have an account - don't worry!</p>
+    {% comment %} <br> {% endcomment %}
     <a class="button" href="{% url 'users:createAccount' %}">Create Account</a>
 {% endblock %}

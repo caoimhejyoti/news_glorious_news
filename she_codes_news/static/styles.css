@@ -9,11 +9,11 @@
     /* ------------------COLOURS------------------ */
     /* CaoimheJyoti Brand Colours */
     /* Highlights */
-    --colour1: #01463c;
-    --colour2: #af1b3f;
-    --colour3: #ffcc7a;
-    --colour4: #9baeb2;
-    --colour5: #fffffc;
+    --colour1: #DF495E;
+    --colour2: #F39D47;
+    --colour3: #917BB0;
+    --colour4: #1C5752;
+    --colour5: #E0DEDB;
     /* Neutrals */
     --colour11: #06130f;
     --colour12: #4a5551;
@@ -23,9 +23,8 @@
     /* inherited colours */
     --text: var(--colour15);
 
-    /* alternate company colours */
-    --she-codes-purple: #8246ae;
-    --she-codes-orange: #f9a426;
+    /* bkgd img */
+    --crumble:"../news/static/assets/branding/News_Glorious_News_bkgd.png";
 
     /* ------------------FONTS------------------ */
     --font-1: "Rock Salt", cursive;
@@ -81,11 +80,11 @@
     text-align: center;
   }
   h3 {
-    color: var(--color5);
+    color: var(--colour4);
     font-size: 1.953rem;
   }
   h4 {
-    color: var(--colour3);
+    color: var(--colour5);
     font-size: 1.563rem;
   }
   h5 {
@@ -93,7 +92,7 @@
     font-size: 1.25rem;
   }
   h6 {
-    color: var(--colour3);
+    color: var(--colour2);
     font-size: 0.8rem;
   }
   p {
@@ -114,8 +113,9 @@
 button,
 .button {
     padding: 0.8rem;
+    /* background-image: var(--crumble); */
     background-color: var(--colour3);
-    color: var(--colour1);
+    color: var(--colour4);
     border: none;
     border-radius: 0.4rem;
     font-family: var(--font-2);
@@ -185,9 +185,14 @@ text-decoration: none;
 header a:hover,
 header a:active,
 header a:focus {
-color: var(--colour2);
+color: var(--colour4);
 font-weight: bold;
 text-decoration: none;
+}
+.logo {
+  margin: 0.6rem;
+  height: 8vh;
+  /* border-radius: 50%; */
 }
 
 /* ---- toggle hamburger menu for nav on larger devices ---- */
