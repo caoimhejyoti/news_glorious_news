@@ -3,6 +3,6 @@ venv/*
 __pycache__/
 *.sqlite3
 *.vscode
-
+.DS_Store
 
 workingnotes.txt
