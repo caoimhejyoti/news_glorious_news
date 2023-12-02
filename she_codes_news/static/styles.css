@@ -1,35 +1,201 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap'); */
 
-body {
-    background-color: rgb(240, 239, 239);
+/* ------------------ GLOBAL VARIABLES ------------------ */
+:root {
+    /* ------------------LAYOUT------------------ */
+    --base-padding: 20px;
+    --base-margin: 10px;
+
+    /* ------------------COLOURS------------------ */
+    /* CaoimheJyoti Brand Colours */
+    /* Highlights */
+    --colour1: #01463c;
+    --colour2: #af1b3f;
+    --colour3: #ffcc7a;
+    --colour4: #9baeb2;
+    --colour5: #fffffc;
+    /* Neutrals */
+    --colour11: #06130f;
+    --colour12: #4a5551;
+    --colour13: #5c6763;
+    --colour14: #95a09c;
+    --colour15: #e7f4ee;
+    /* inherited colours */
+    --text: var(--colour15);
+
+    /* alternate company colours */
+    --she-codes-purple: #8246ae;
+    --she-codes-orange: #f9a426;
+
+    /* ------------------FONTS------------------ */
+    --font-1: "Rock Salt", cursive;
+    --font-2: "Josefin Sans", sans-serif;
+    --font-3: "Playfair Display", serif;
+
+    --h1: 5.441rem;
 }
+  /* ------------------ END OF GLOBAL VARIABLES ------------------ */
 
+/* ------------------Reset/base CSS code and style guide------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  body {
+    background-color: var(--colour1);
+    color: var(--text);
+    font-family: var(--font-2);
+    font-size: 112.5%;
+    font-weight: 400;
+    line-height: 1.65;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
+    display: block;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  h1 {
+    color: var(--colour1);
+    font-family: var(--font-2);
+    font-size: 3.052rem;
+  }
+  h2 {
+    font-family: var(--font-2);
+    font-size: 2.441rem;
+    text-align: center;
+  }
+  h3 {
+    color: var(--color5);
+    font-size: 1.953rem;
+  }
+  h4 {
+    color: var(--colour3);
+    font-size: 1.563rem;
+  }
+  h5 {
+    color: var(--colour3);
+    font-size: 1.25rem;
+  }
+  h6 {
+    color: var(--colour3);
+    font-size: 0.8rem;
+  }
+  p {
+    padding: 0.6rem 0;
+  }
+  .text_small {
+    font-size: 0.512rem;
+  }
+  a {
+    font-family: var(--font-3);
+  }
+  .constrained-container {
+    padding: 1.6rem;
+  }
+  /* ------------------ end of resent/stye guide ------------------ */
+  
+  /* ------------------ Button Styling ------------------ */
+button,
+.button {
+    padding: 0.8rem;
+    background-color: var(--colour3);
+    color: var(--colour1);
+    border: none;
+    border-radius: 0.4rem;
+    font-family: var(--font-2);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.button-danger {
+    padding: 0.8rem;
+    background-color: var(--colour2);
+    color: var(--colour5);
+    border: none;
+    border-radius: 0.4rem;
+    font-family: var(--font-2);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.button-success {
+    margin-top: 0.6rem;
+    padding: 0.8rem;
+    background-color: var(--colour1);
+    color: var(--colour5);
+    border: none;
+    border-radius: 0.4rem;
+    font-family: var(--font-2);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.button-success:hover {
+    border: var(--colour5) solid 0.2rem;
+}
+.button-download {
+    padding: 0.8rem;
+    background-color: var(--colour1);
+    color: var(--colour5);
+    border: none;
+    border-radius: 0.4rem;
+    font-family: var(--font-2);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.button-download:hover {
+    background-color: var(--colour3);
+    color: var(--colour1);
+}
+/* ------------------ end of buttons ------------------ */
+
+/* ------------------ Header ------------------ */
+/* NOTE: look at fixing when scrolled but not at top... */
 header {
+    width: 100%;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #000;
+    background-color: var(--colour5);
+}
+header a {
+display: inline-block;
+color: var(--colour1);
+font-size: 1.6rem;
+text-decoration: none;
+}
+header a:hover,
+header a:active,
+header a:focus {
+color: var(--colour2);
+font-weight: bold;
+text-decoration: none;
 }
 
-/* img {
-    filter: grayscale(100%);
-} */
 
-h1 {
-    font-family: 'Montserrat Subrayada', sans-serif;
-    text-decoration: none;
-    font-size: 4rem;
-    margin: 0;
-}
-
-h2 {
-   font-family: 'Montserrat Subrayada', sans-serif; 
-}
 
 h3 {
     font-size: 2rem;
     margin: 0;
-}
+} */
 
 #header-text {
     flex-basis: 80%;
@@ -49,6 +215,7 @@ a {
     color: #000;
 }
 
-a, p {
+/* a, p {
     font-family: monospace;
-}
+} */
+
