@@ -1,6 +1,12 @@
 from django import forms
 from django.forms import ModelForm
 from .models import NewsStory
+from .models import Image
+
+class ImageForm(ModelForm):
+    class Meta: 
+        model = Image
+        fields = ("name", "img")
 
 class StoryForm(ModelForm):
     class Meta:
@@ -15,5 +21,7 @@ class StoryForm(ModelForm):
                     "placeholder": "Select a date",
                     "type": 'date'
                 }
-            )
+            ),
+            # 'image':
         }
+
