@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<main class="constrained-container userProfile">
+    <section class="user-card">
+        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+        <section class="user-info">
+            <div>
+                {% load static %}
+                <img class="user-icon" src="{% static "../static/assets/branding/News_Glorious_News_USER.png" %}">
+            </div>
+            <div>
+                <p>Username</p>
+                <h4>{{ user.username }}</h4>
+                <p>Email</p>
+                <h4>{{ user.email }}</h4>
+                <p>Date joined</p>
+                <h4>{{ user.date_joined }}</h4>
+            </div>
+        </section>
+    </section>
+
+    <section class="user-stories">
+    </section>
+</main>
+{% endblock %}
