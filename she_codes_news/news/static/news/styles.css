@@ -1,3 +1,4 @@
+
 .story-card {
     margin: 2px;
     border: 1px solid #000;
@@ -10,13 +11,14 @@
     object-fit: cover;
 }
 
-#latest-stories {
+.latest-stories {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 1px 1px;
     grid-template-areas: "left-1 right-1" "left-1 right-2" "left-1 right-3";
     max-height: 500px;
+    background-color: var(--colour2);
 }
 
 #story-card-1 {
@@ -64,13 +66,13 @@
     margin-right: 5px;
 }
 
-#all-stories {
+.all-stories {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-#all-stories .story-card {
+.all-stories .story-card {
     flex-basis: 32%;
     flex-grow: 1;
 }
