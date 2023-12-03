@@ -1,8 +1,11 @@
 from django.views import generic
+from django.http import HttpResponse
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import NewsStory
 from .forms import StoryForm
+# from .forms import ImageForm
 
 
 class IndexView(generic.ListView):
@@ -36,3 +39,13 @@ class AddStoryView(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    # def gallery(request):
+    #     if request.method == 'POST':
+    #         form = ImageForm(request.POST, request.FILES)
+
+    #     if form.is_valid():
+    #         form.save()
+    #         return HttpResponse('successfully uploaded')
+    #     else:
+    #         form = ImageForm()
+    #     return render(request, "template/gallery.html", {"form": form})
