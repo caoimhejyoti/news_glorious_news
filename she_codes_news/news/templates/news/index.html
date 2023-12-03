@@ -6,11 +6,12 @@
 {%endblock %}
 
 {% block content %}
-<br>
-<a class="button" href="{% url 'news:newStory' %}"> Write New Story</a>
-<h2>Latest News</h2>
+<main class="constrained-container"> 
+  <br>
+  <h2>Latest News</h2>
 
-  <div id="latest-stories">
+  <a class="button" href="{% url 'news:newStory' %}"> Write New Story</a>
+  <div class="latest-stories">
     {% if latest_stories %}
       {% for story in latest_stories %}
         {% include "./storyCard.html" with story=story position=forloop.counter%}
@@ -20,7 +21,7 @@
     {% endif %}
   </div>
 
-  <div id="all-stories">
+  <div class="all-stories">
     {% if latest_stories %} 
       {% for story in all_stories %}
         {% include "./storyCard.html" with story=story%}
@@ -29,5 +30,6 @@
       <p>No stories are available.</p>
     {% endif %}
   </div>
+</main>
 
 {% endblock %}
