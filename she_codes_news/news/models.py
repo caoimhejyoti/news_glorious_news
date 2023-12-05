@@ -25,6 +25,7 @@ class NewsStory(models.Model):
     #     null = True,
     #     blank = True
     # )
+    search_fields = ('title', 'author__username')
     def __str__(self):
         return self.title
 
