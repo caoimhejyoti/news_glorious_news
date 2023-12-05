@@ -12,7 +12,7 @@
   {% if request.user.is_authenticated %}
     <a class="button" href="{% url 'news:newStory' %}"> Write New Story</a>
   {% endif %}
-  <div class="latest-stories">
+  <section class="latest-stories">
     {% if latest_stories %}
       {% for story in latest_stories %}
         {% include "./storyCard.html" with story=story position=forloop.counter%}
@@ -20,9 +20,9 @@
     {% else %}
       <p>No stories are available.</p>
     {% endif %}
-  </div>
+  </section>
 
-  <div class="all-stories">
+  <section class="all-stories">
     {% if latest_stories %} 
       {% for story in all_stories %}
         {% include "./storyCard.html" with story=story%}
@@ -30,7 +30,7 @@
     {% else %}
       <p>No stories are available.</p>
     {% endif %}
-  </div>
+  </section>
 </main>
 
 {% endblock %}
