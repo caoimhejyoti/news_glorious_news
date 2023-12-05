@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Search Page</h2>
+
+    <br/>
+    <form class="d-flex" role="search" method="POST" action="{% url 'news:search-view' %}">
+        {% csrf_token %}
+        <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search for something"
+            name="search_query"
+            required aria-label="Search"
+        >
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+
+    {% if query %}
+    <div>
+        <div>
+        <!-- check if there is a result in the database-->
+        {% if stories %}
+            <!-- loop through search query if there is a result -->
+            {% for story in stories %}
+                <div>
+                    <!-- return search query -->
+                    <p>{{story.title}}</p>
+                    <p>{{story.content}}</p>
+                </div>
+            {% endfor %}
+            <!-- return a message if there are no results found. -->
+        {% else %}
+            <h3>No search results found</h3>
+        {% endif %}
+        </div>
+    </div>
+    {% else %}
+    <!-- return a message if the user does not enter a search query -->
+    <h2>Please enter a search query</h2>
+    {% endif %}
+
+{% endblock %}

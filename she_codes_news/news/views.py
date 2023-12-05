@@ -1,6 +1,7 @@
 from django.views import generic
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import NewsStory
@@ -49,3 +50,16 @@ class AddStoryView(LoginRequiredMixin, generic.CreateView):
     #     else:
     #         form = ImageForm()
     #     return render(request, "template/gallery.html", {"form": form})
+
+
+# ------------ Setting up Search functionality-------------
+def search_feature(request):
+    if request.method =='POST':
+        search_query = request.POST['search_query']
+        stories = NewsStory.objects.filter(Q(title__icontains=search_query)|Q(author__email__icontains=search_query))
+        # stories = NewsStory.objects.filter(Q(title__icontains=search_query) | Q(author__icontains=search_query))
+        return render(request, 'news/search.html', {'query':search_query, 'stories':stories})
+    else:
+        return render(request, 'news/search.html', {})
+    
+
