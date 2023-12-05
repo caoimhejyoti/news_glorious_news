@@ -1,30 +1,35 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+<linkrel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{%endblock %}
 
 {% block content %}
+<main class="constrained-container"> 
     <h2>Search Page</h2>
-
-    <br/>
-    <form class="d-flex" role="search" method="POST" action="{% url 'news:search-view' %}">
-        {% csrf_token %}
-        <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search for something"
-            name="search_query"
-            required aria-label="Search"
-        >
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-
+    <section class="search-form">
+        <br/>
+        <form class="d-flex" role="search" method="POST" action="{% url 'news:search-view' %}">
+            {% csrf_token %}
+            <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search for something"
+                name="search_query"
+                required aria-label="Search"
+            >
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </section>
 
     {% if query %}
-    <div>
-        <div class="story-card">
+    <section class="search-results">
         <!-- check if there is a result in the database-->
         {% if stories %}
             <!-- loop through search query if there is a result -->
             {% for story in stories %}
-                <div >
+                <div class="story-card">
                     <!-- return search query -->
                     <p>{{story.title}}</p>
                     <p>{{story.content}}</p>
@@ -34,11 +39,13 @@
         {% else %}
             <h3>No search results found</h3>
         {% endif %}
-        </div>
-    </div>
+    </section>
     {% else %}
-    <!-- return a message if the user does not enter a search query -->
-    <h2>Please enter a search query</h2>
+    <section>
+        <!-- return a message if the user does not enter a search query -->
+        <h2>Please enter a search query</h2>
+    </section>
     {% endif %}
 
+</main>
 {% endblock %}

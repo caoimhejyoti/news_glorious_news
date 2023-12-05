@@ -302,7 +302,7 @@ a {
   background-color: var(--colour2);
 }
 
-#story-card {
+.story-card {
   margin: 2px;
   padding: 5px;
   border: 1px solid var(--colour4);
