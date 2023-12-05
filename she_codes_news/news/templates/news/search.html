@@ -19,12 +19,12 @@
 
     {% if query %}
     <div>
-        <div>
+        <div class="story-card">
         <!-- check if there is a result in the database-->
         {% if stories %}
             <!-- loop through search query if there is a result -->
             {% for story in stories %}
-                <div>
+                <div >
                     <!-- return search query -->
                     <p>{{story.title}}</p>
                     <p>{{story.content}}</p>

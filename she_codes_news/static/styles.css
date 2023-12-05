@@ -291,7 +291,7 @@ a {
     color: #000;
 }
 
-/* ------------------ INDEX PAGE ------------------ */
+/* ------------------ STORIES PAGE ------------------ */
 .latest-stories {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -301,7 +301,17 @@ a {
   max-height: 500px;
   background-color: var(--colour2);
 }
-/* ------------------ END INDEX PAGE ------------------ */
+
+#story-card {
+  margin: 2px;
+  padding: 5px;
+  border: 1px solid var(--colour4);
+  border-radius: 0.4rem;
+  background-color: #F39D47;
+}
+
+
+/* ------------------ END STORIES PAGE ------------------ */
 /* ------------------ PROFILE PAGE ------------------ */
 .user-card{
   padding: 0.8rem;
