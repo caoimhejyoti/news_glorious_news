@@ -124,7 +124,7 @@ button,
 }
 .button-danger {
     padding: 0.8rem;
-    background-color: var(--colour2);
+    background-color: var(--colour4);
     color: var(--colour5);
     border: none;
     border-radius: 0.4rem;
@@ -346,30 +346,34 @@ a {
   width: 80vw;
   margin: 2px;
   padding: 5px;
-  border: 1px solid var(--colour4);
+  /* border: 1px solid var(--colour4); */
   border-radius: 0.4rem;
   background-color:var(--colour3);
 }
 
+.story-img{
+  height: 20vh;
+}
 
 /* ------------------ END STORIES PAGE ------------------ */
 /* ------------------ PROFILE PAGE ------------------ */
 .user-card{
   padding: 0.8rem;
+  display: flex;
+  /* flex-direction: column; */
   border-radius: 0.4rem;
   background-color: var(--colour3);
 }
 
 .user-info{
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
 
 .user-icon{
-  /* margin: 0.6rem; */
   height: 20vh;
-  /* width: 2vw; */
 }
 
 /* ------------------ END PROFILE PAGE ------------------ */
