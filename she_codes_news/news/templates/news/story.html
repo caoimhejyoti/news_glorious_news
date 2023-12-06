@@ -6,17 +6,38 @@
 {% endblock %}
 
 {% block content %}
-<div id="story-wrapper">
-  <h2>{{ story.title }}</h2>
-  <h4>{{ story.author }}</h4>
-  <div id="story-content">
-    {% if story.image %}
-      <img src="{{ story.image }}" />
-    {%else%}
-      {% comment %} <img src="{{% static '/news/images/placeholder-5.jpg' %}}" /> {% endcomment %}
+<main class="constrained-container"> 
+  {% comment %} Story {% endcomment %}
+  <section id="story-wrapper">
+    <h2>{{ story.title }}</h2>
+    <h4>{{ story.author }}</h4>
+    <div id="story-content">
+      {% if story.image %}
+        <img src="{{ story.image }}" />
+      {% endif %}
+      {{ story.content|linebreaks }}
+    </div>
+  </section>
+  <br>
+  {% comment %} COMMENTS {% endcomment %}
+  <section class="comment-form">
+    <h4> Have something to say? Let us know </h4>
+    <form action = "{% url "news:addComment" story.id %}" method = "post">
+      {% csrf_token %} 
+      {{form.as_p}} 
+      <input type="submit" value="submit">
+    </form>
+  </section>
+  <br>
+  <section class="comment-display">
+    {% if story.comment%}
+      <p>if there are comments you should see them here</p>
+      {{story.comment.content}}
+      {{story.comment.author}}
+    {% else %}
+      <p>There are no comments yet - add yours above.</p>
     {% endif %}
-    {{ story.content|linebreaks }}
-  </div>
-</div>
+  </section>
+</main>
 
 {% endblock %}
