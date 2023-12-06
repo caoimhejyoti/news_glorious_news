@@ -11,6 +11,7 @@
   <section id="story-wrapper">
     <h2>{{ story.title }}</h2>
     <h4>{{ story.author }}</h4>
+    <h6>{{ story.pub_date }}</h6>
     <div id="story-content">
       {% if story.image %}
         <img src="{{ story.image }}" />
@@ -30,13 +31,16 @@
   </section>
   <br>
   <section class="comment-display">
-    {% if story.comment%}
-      <p>if there are comments you should see them here</p>
-      {{story.comment.content}}
-      {{story.comment.author}}
-    {% else %}
-      <p>There are no comments yet - add yours above.</p>
-    {% endif %}
+    <h5>Comments</h5>
+    {% if story.comments.all%}
+    {% for comment in story.comments.all%}
+      <ul>
+        <li>{{comment.content}}  by {{comment.author.username}} </li>
+      </ul>
+    {% endfor %}
+  {% else %}
+    <p>There are no comments yet - add yours above.</p>
+  {% endif %}
   </section>
 </main>
 
