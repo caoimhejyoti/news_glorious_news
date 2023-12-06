@@ -1,11 +1,12 @@
+from django.forms.models import BaseModelForm
 from django.views import generic
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import NewsStory
-from .forms import StoryForm
+from .models import NewsStory, StoryComments
+from .forms import CommentForm, StoryForm
 # from .forms import ImageForm
 
 
@@ -30,6 +31,10 @@ class StoryView(generic.DetailView):
     context_object_name = 'story'
     # TODO:filter to only show dates in the past/today
     # only can view future if the author is yours. 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = CommentForm()
+        return context
 
 class AddStoryView(LoginRequiredMixin, generic.CreateView):
     login_url = "login"
@@ -52,7 +57,7 @@ class AddStoryView(LoginRequiredMixin, generic.CreateView):
     #     return render(request, "template/gallery.html", {"form": form})
 
 
-# ------------ Setting up Search functionality-------------
+# ------------ FIXME: Search functionality -------------
 def search_feature(request):
     if request.method =='POST':
         search_query = request.POST['search_query']
@@ -63,3 +68,18 @@ def search_feature(request):
         return render(request, 'news/search.html', {})
     
 
+# ------------ Comments functionality (taken from class demo) -------------
+class AddCommentView(generic.CreateView):
+    form_class = CommentForm
+
+    def get(self, request, *args, **kwargs):
+        return redirect("news:story", pk=self.kwargs.get("pk"))
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        pk= self.kwargs.get("pk")
+        form.instance.story= get_object_or_404(NewsStory, pk=pk)
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        return reverse_lazy('news:story', kwargs={'pk':self.kwargs.get('pk')})

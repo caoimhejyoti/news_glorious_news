@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import NewsStory
+from .models import NewsStory, StoryComments
 from .models import Image
 
 # class ImageForm(ModelForm):
@@ -23,4 +23,9 @@ class StoryForm(ModelForm):
                 }
             )
         }
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = StoryComments
+        fields = ['content']
 
