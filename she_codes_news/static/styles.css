@@ -124,7 +124,7 @@ button,
 }
 .button-danger {
     padding: 0.8rem;
-    background-color: var(--colour2);
+    background-color: var(--colour4);
     color: var(--colour5);
     border: none;
     border-radius: 0.4rem;
@@ -239,7 +239,7 @@ text-decoration: none;
     height: 4px;
     width: 100%;
     display: block;
-    background: var(--colour1);
+    background: var(--colour5);
     border-radius: 10px;
   }
   /* -- transform hamburger lines -- */
@@ -256,15 +256,15 @@ text-decoration: none;
   }
   /* -- change hamburger when checked -- */
   .checkbox input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
-    background: var(--colour1);
+    background: var(--colour5);
     transform: rotate(45deg);
   }
   .checkbox input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
-    background: var(--colour1);
+    background: var(--colour5);
     transform: scaleY(0);
   }
   .checkbox input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
-    background: var(--colour1);
+    background: var(--colour5);
     transform: rotate(-45deg);
   }
   /* ------------------ END OF HEADER ------------------ */
@@ -295,19 +295,44 @@ a {
 /* ------------------ MAIN ------------------ */
 /* ------------------ INDEX PAGE ------------------ */
 .index-header{
+  padding: 0.8rem;
   display:flex;
   align-items: center;
   justify-content: center;
-  background-image: var(--crumble);
 }
 .index-header h1{
-  background-color: var(--colour5);
-  color: var(--colour3);
+  text-align: center;
+}
+
+.latest-stories{
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--colour1);
+}
+
+.card{
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.4rem;
+}
+
+.all-stories{
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--colour2);
 }
 /* ------------------ END INDEX PAGE ------------------ */
 
 /* ------------------ STORIES PAGE ------------------ */
-.latest-stories {
+/* .latest-stories {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -315,35 +340,40 @@ a {
   grid-template-areas: "left-1 right-1" "left-1 right-2" "left-1 right-3";
   max-height: 500px;
   background-color: var(--colour2);
-}
+} */
 
 .story-card {
+  width: 80vw;
   margin: 2px;
   padding: 5px;
-  border: 1px solid var(--colour4);
+  /* border: 1px solid var(--colour4); */
   border-radius: 0.4rem;
   background-color:var(--colour3);
 }
 
+.story-img{
+  height: 20vh;
+}
 
 /* ------------------ END STORIES PAGE ------------------ */
 /* ------------------ PROFILE PAGE ------------------ */
 .user-card{
   padding: 0.8rem;
+  display: flex;
+  /* flex-direction: column; */
   border-radius: 0.4rem;
   background-color: var(--colour3);
 }
 
 .user-info{
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
 
 .user-icon{
-  /* margin: 0.6rem; */
   height: 20vh;
-  /* width: 2vw; */
 }
 
 /* ------------------ END PROFILE PAGE ------------------ */
@@ -397,12 +427,22 @@ footer a:hover {
     .hamburger-lines {
       display: none;
     }
-  }
+
+    .card{
+      justify-content: space-evenly;
+      border-radius: 0.4rem;
+    }
+
+    .story-card {
+      width: 45vw;
+    }
+}
   /* ------ query for constrained-contianer in desktop ------ */
   @media screen and (min-width: 900px) {
     .constrained-container {
       max-width: 870px;
       margin: 1rem auto;
     }
+
   }
   /* ------------------ END OF MEDIA QUERIES ------------------ */

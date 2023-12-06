@@ -5,7 +5,7 @@
     {%else%}
         {% comment %} <img src="{{% static '/news/images/placeholder-5.jpg' %}}" /> {% endcomment %}
         {% if position < 5 %}
-            <img src="../static/news/images/placeholder-{{ position }}.jpg">
+            <img class = "story-img" src="../static/news/images/placeholder-{{ position }}.jpg">
         {% else %}
             <img src="https://picsum.photos/600">
         {% endif %}
