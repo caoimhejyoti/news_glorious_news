@@ -8,4 +8,6 @@ urlpatterns = [
     path('<int:pk>/', views.StoryView.as_view(), name='story'),
     path('add-story/', views.AddStoryView.as_view(), name='newStory'),
     path('search/', views.search_feature, name='search-view'),
+    path('<int:pk>/comment', views.AddCommentView.as_view(), name='addComment'),
+    
 ]
