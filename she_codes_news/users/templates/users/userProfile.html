@@ -20,17 +20,17 @@
             </div>
         </section>
     </section>
-
+<br>
     <section class="user-stories">
-        {% if authored_stories %} 
+        <a class="button" href="{% url 'news:newStory' %}"> Write New Story</a>
+        {% if authored_stories.all %} 
             <div class="story-card-text">
-                <h3>{{ story.title }}</h3>
-                <h4>{{ story.author }}</h4>
-                <h4>{{ story.pub_date }}</h4>
+                {% for story in authored_stories.all %}
+                    {% include "news/storyCard.html" with story=story %}
+                {% endfor %}
             </div>
         {% else %}
             <p>Time to create a story!</p>
-            <a class="button" href="{% url 'news:newStory' %}"> Write New Story</a>
         {% endif %}
     </section>
 </main>
