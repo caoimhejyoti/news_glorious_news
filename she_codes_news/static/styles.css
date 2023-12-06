@@ -94,13 +94,14 @@
     color: var(--colour2);
     font-size: 0.8rem;
   }
-  p {
+  p, li {
+    font-size: 0.8rem;
     padding: 0.6rem 0;
   }
   .text_small {
     font-size: 0.512rem;
   }
-  a {
+  a{
     font-family: var(--font-3);
   }
   .constrained-container {
@@ -124,7 +125,7 @@ button,
 }
 .button-danger {
     padding: 0.8rem;
-    background-color: var(--colour4);
+    background-color: var(--colour1);
     color: var(--colour5);
     border: none;
     border-radius: 0.4rem;
@@ -136,7 +137,7 @@ button,
 .button-success {
     margin-top: 0.6rem;
     padding: 0.8rem;
-    background-color: var(--colour1);
+    background-color: var(--colour4);
     color: var(--colour5);
     border: none;
     border-radius: 0.4rem;
@@ -324,6 +325,7 @@ a {
 
 .all-stories{
   margin: 1rem 0;
+  padding: 1rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -351,11 +353,45 @@ a {
   background-color:var(--colour3);
 }
 
-.story-img{
+/* .story-img{
   height: 20vh;
+} */
+
+.story-card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+.story-wrapper, .comment-form, .comment-display{
+  /* display: flex;
+  flex-direction: column; */
+  background-color: var(--colour4);
+}
+
+.story-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+.story-content{
+  padding: 0.5rem;
+}
+
+.comment-form, .comment-display{
+  display: flex;
+  flex-direction: column;
+  padding:0.5rem;
+}
+
+.comment-display a{
+  font-family: var(--font-2);
+  color: var(--colour2);
 }
 
 /* ------------------ END STORIES PAGE ------------------ */
+
 /* ------------------ PROFILE PAGE ------------------ */
 .user-card{
   padding: 0.8rem;
@@ -402,6 +438,7 @@ footer {
 footer a {
   padding: 0.6rem;
   color: var(--colour15);
+  font-size: 0.8rem;
   font-family: var(--font-2);
   text-decoration: none;
 }

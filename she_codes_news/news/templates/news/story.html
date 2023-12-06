@@ -6,47 +6,48 @@
 {% endblock %}
 
 {% block content %}
-<main class="constrained-container"> 
-  {% comment %} Story {% endcomment %}
-  <section id="story-wrapper">
-    <h2>{{ story.title }}</h2>
+<section class="story-wrapper">
+  <h2>{{ story.title }}</h2>
+  <section class="story-info">
     <a href= "{% url 'news:authorFilter' story.author %}">
-      <h4>{{ story.author }}</h4>
+      <h6>by {{ story.author }}</h6>
     </a>
     <h6>{{ story.pub_date }}</h6>
-    <div id="story-content">
-      {% if story.image %}
-        <img src="{{ story.image }}" />
-      {% endif %}
-      {{ story.content|linebreaks }}
-    </div>
   </section>
-  <br>
-  {% comment %} COMMENTS {% endcomment %}
-  {% if request.user.is_authenticated %}
-    <section class="comment-form">
-      <h4> Have something to say? Let us know </h4>
-      <form action = "{% url "news:addComment" story.id %}" method = "post">
-        {% csrf_token %} 
-        {{form.as_p}} 
-        <input type="submit" value="submit">
-      </form>
-    </section>
-    <br>
-    <section class="comment-display">
-      <h5>Comments</h5>
-      {% if story.comments.all%}
-      {% for comment in story.comments.all%}
-        <ul>
-          <li>{{comment.content}} by {{comment.author.username}} </li>
-        </ul>
-      {% endfor %}
-    {% else %}
-      <p>There are no comments yet - add yours above.</p>
-    {% endif %}
-    </section>
+  {% if story.image %}
+    <img src="{{ story.image }}" />
   {% endif %}
+  <article class="story-content">
+    {{ story.content|linebreaks }}
+  </article>
+</section>
+</br>
+{% if request.user.is_authenticated %}
+  <section class="comment-form">
+    <h5> Have something to say? Let us know </h5>
+    <form action = "{% url "news:addComment" story.id %}" method = "post">
+      {% csrf_token %} 
+      {{form.as_p}} 
+      <input class="button-danger" type="submit" value="Submit">
+    </form>
+  </section>
+  <section class="comment-display">
+    <h5>Comments</h5>
+    {% if story.comments.all%}
+    {% for comment in story.comments.all%}
+      <ul>
+        <li>{{comment.content}} by <a href= "{% url 'news:authorFilter' story.author %}">{{comment.author.username}}</a> </li>
+      </ul>
+    {% endfor %}
+  {% else %}
+    <p>There are no comments yet - add yours above.</p>
+  {% endif %}
+  </section>
+{% endif %}
+</br>
+<a class="button" href="{% url 'news:authorFilter' story.author %}">More stories by {{story.author}}</a>
 
-</main>
+
+
 
 {% endblock %}
