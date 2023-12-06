@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block stylesheets %}
+<linkrel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{%endblock %}
+
+{% block content %}
+<main class="constrained-container"> 
+  <br>
+  <h2>{{author.username}}'s Stories</h2>
+  <section class="all-stories">
+    {% if latest_stories %} 
+      {% for story in all_stories %}
+        {% include "./storyCard.html" with story=story%}
+      {% endfor %}
+    {% else %}
+      <p>Oh no! {{author.username}} has not written any stories yet, check back later.</p>
+    {% endif %}
+  </section>
+</main>
+
+{% endblock %}
