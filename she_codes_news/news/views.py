@@ -1,3 +1,4 @@
+from django.db import models
 from django.forms.models import BaseModelForm
 from django.views import generic
 from django.http import HttpResponse
@@ -5,6 +6,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from users.models import CustomUser
 from .models import NewsStory, StoryComments
 from .forms import CommentForm, StoryForm
 # from .forms import ImageForm
@@ -83,3 +86,17 @@ class AddCommentView(generic.CreateView):
     
     def get_success_url(self):
         return reverse_lazy('news:story', kwargs={'pk':self.kwargs.get('pk')})
+
+# ------------ Filtered Author view (taken from class demo) -------------
+class AuthorView(generic.DetailView):
+    model = CustomUser
+    template_name = 'news/author.html'
+    context_object_name = 'author'
+
+    def get_object(self, *args, **kwargs):
+        return get_object_or_404(CustomUser, username=self.kwargs['username'])
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['lastest_stories'] = NewsStory.objects.filter(author__id=self.object.id)
+        return context
