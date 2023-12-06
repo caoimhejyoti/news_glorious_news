@@ -11,12 +11,16 @@
   <img class="" src="{%static "../static/assets/branding/NGN_banner_logo2.png"%}" alt="News Glorious News Banner">
 </section>
 
+<div>
+  {% if request.user.is_authenticated %}
+    <a class="button" href="{% url 'news:newStory' %}"> Write New Story</a>
+  {% endif %}
+</div>
+
 <section class="latest-stories">
   <h2>Latest News</h2>
   <article class='card'>
-    {% if request.user.is_authenticated %}
-      <a class="button" href="{% url 'news:newStory' %}"> Write New Story</a>
-    {% endif %}
+    
     {% if latest_stories %}
       {% for story in latest_stories %}
         {% include "./storyCard.html" with story=story position=forloop.counter%}
