@@ -1,5 +1,7 @@
+from cProfile import label
+from tkinter import Widget
 from django import forms
-from django.forms import ModelForm
+from django.forms import ModelForm, Textarea
 from .models import NewsStory, StoryComments
 from .models import Image
 
@@ -28,4 +30,15 @@ class CommentForm(ModelForm):
     class Meta:
         model = StoryComments
         fields = ['content']
+        labels = {
+            "content":""
+        }
+        widgets = {
+            'content': Textarea(
+                attrs={
+                    'rows':2,
+                    'cols':40,
+                }
+            )
+        }
 
