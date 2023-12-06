@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<section class="update">
+    <h2>Update Account</h2>
+    <section class="user-info">
+
+    </section>
+
+    </br>
+
+    {% if authored_stories.all %} 
+    <h2> Delete Your Stories</h2>
+    <p> Below you are able to delete stories created by you. Please be aware, this is not reversable.</p> 
+    <section class="latest-stories">
+        <table>
+            {%for story in authored_stories.all%}
+            <tr>
+            <td>{{story.id}}</td>
+            <td>{{story.title}}</td>
+            <td>{{story.pub_date}}</td>
+            <td><a href="update/{{story.id}}">Update</a></td>
+            <td><a href="delete/{{story.id}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </section>
+</section>
+
+
+
+
+{% endblock %}
