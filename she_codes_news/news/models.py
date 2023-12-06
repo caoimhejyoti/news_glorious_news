@@ -30,3 +30,15 @@ class NewsStory(models.Model):
         return self.title
 
 
+class StoryComments(models.Model):
+    pub_date = models.DateTimeField(auto_now_add=True)
+    content = models.TextField()
+    story = models.ForeignKey(
+        NewsStory,
+        related_name= "comments",
+        on_delete=models.CASCADE
+    )
+    author = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE
+    )
