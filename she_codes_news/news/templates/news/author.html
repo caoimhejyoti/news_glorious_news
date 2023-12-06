@@ -6,17 +6,16 @@
 {%endblock %}
 
 {% block content %}
-<main class="constrained-container"> 
-  <h2>{{author.username}}'s Stories</h2>
-  <section class="all-stories">
-    {% if latest_stories %} 
-      {% for story in latest_stories %}
-        {% include "./storyCard.html" with story=story%}
-      {% endfor %}
-    {% else %}
-      <p>Oh no! {{author.username}} has not written any stories yet, check back later.</p>
-    {% endif %}
-  </section>
-</main>
+<h1>{{author.username}}'s Stories</h1>
+<section class="all-stories">
+  {% if latest_stories %} 
+    {% for story in latest_stories %}
+      {% include "./storyCard.html" with story=story%}
+    {% endfor %}
+  {% else %}
+    <p>Oh no! {{author.username}} has not written any stories yet, check back later.</p>
+  {% endif %}
+</section>
+
 
 {% endblock %}
