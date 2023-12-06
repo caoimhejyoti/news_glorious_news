@@ -35,7 +35,7 @@
     {% if story.comments.all%}
     {% for comment in story.comments.all%}
       <ul>
-        <li>{{comment.content}}  by {{comment.author.username}} </li>
+        <li>{{comment.content}} by {{comment.author.username}} </li>
       </ul>
     {% endfor %}
   {% else %}
