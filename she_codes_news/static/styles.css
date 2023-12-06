@@ -295,19 +295,44 @@ a {
 /* ------------------ MAIN ------------------ */
 /* ------------------ INDEX PAGE ------------------ */
 .index-header{
+  padding: 0.8rem;
   display:flex;
   align-items: center;
   justify-content: center;
-  background-image: var(--crumble);
 }
 .index-header h1{
-  background-color: var(--colour5);
-  color: var(--colour3);
+  text-align: center;
+}
+
+.latest-stories{
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--colour1);
+}
+
+.card{
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.4rem;
+}
+
+.all-stories{
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--colour2);
 }
 /* ------------------ END INDEX PAGE ------------------ */
 
 /* ------------------ STORIES PAGE ------------------ */
-.latest-stories {
+/* .latest-stories {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -315,9 +340,10 @@ a {
   grid-template-areas: "left-1 right-1" "left-1 right-2" "left-1 right-3";
   max-height: 500px;
   background-color: var(--colour2);
-}
+} */
 
 .story-card {
+  width: 80vw;
   margin: 2px;
   padding: 5px;
   border: 1px solid var(--colour4);
@@ -397,12 +423,22 @@ footer a:hover {
     .hamburger-lines {
       display: none;
     }
-  }
+
+    .card{
+      justify-content: space-evenly;
+      border-radius: 0.4rem;
+    }
+
+    .story-card {
+      width: 25vw;
+    }
+}
   /* ------ query for constrained-contianer in desktop ------ */
   @media screen and (min-width: 900px) {
     .constrained-container {
       max-width: 870px;
       margin: 1rem auto;
     }
+
   }
   /* ------------------ END OF MEDIA QUERIES ------------------ */

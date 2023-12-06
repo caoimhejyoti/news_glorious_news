@@ -6,16 +6,17 @@
 {%endblock %}
 
 {% block content %}
+<section class="index-header">
+  {%load static%}
+  <img class="" src="{%static "../static/assets/branding/NGN_banner_logo2.png"%}" alt="News Glorious News Banner">
+</section>
 
-  <section class="index-header">
-    <h1>News Glorious News</h1>
-  </section>
-  <section class="latest-stories">
+<section class="latest-stories">
   <h2>Latest News</h2>
-  {% if request.user.is_authenticated %}
-    <a class="button" href="{% url 'news:newStory' %}"> Write New Story</a>
-  {% endif %}
-  
+  <article class='card'>
+    {% if request.user.is_authenticated %}
+      <a class="button" href="{% url 'news:newStory' %}"> Write New Story</a>
+    {% endif %}
     {% if latest_stories %}
       {% for story in latest_stories %}
         {% include "./storyCard.html" with story=story position=forloop.counter%}
@@ -23,9 +24,12 @@
     {% else %}
       <p>No stories are available.</p>
     {% endif %}
-  </section>
+  </article>
+</section>
 
-  <section class="all-stories">
+<section class="all-stories">
+  <h2>All News Stories</h2>
+  <article class='card'>
     {% if latest_stories %} 
       {% for story in all_stories %}
         {% include "./storyCard.html" with story=story%}
@@ -33,7 +37,8 @@
     {% else %}
       <p>No stories are available.</p>
     {% endif %}
-  </section>
+  </article>
+</section>
 
 
 {% endblock %}
