@@ -10,7 +10,9 @@
   {% comment %} Story {% endcomment %}
   <section id="story-wrapper">
     <h2>{{ story.title }}</h2>
-    <h4>{{ story.author }}</h4>
+    <a href= "{% url 'news:authorFilter' story.author %}">
+      <h4>{{ story.author }}</h4>
+    </a>
     <h6>{{ story.pub_date }}</h6>
     <div id="story-content">
       {% if story.image %}

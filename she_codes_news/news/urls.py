@@ -9,5 +9,5 @@ urlpatterns = [
     path('add-story/', views.AddStoryView.as_view(), name='newStory'),
     path('search/', views.search_feature, name='search-view'),
     path('<int:pk>/comment', views.AddCommentView.as_view(), name='addComment'),
-    
+    path('author/<str:username>', views.AuthorView.as_view(), name='authorFilter'),
 ]
