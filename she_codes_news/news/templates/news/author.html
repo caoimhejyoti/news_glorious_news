@@ -7,11 +7,10 @@
 
 {% block content %}
 <main class="constrained-container"> 
-  <br>
   <h2>{{author.username}}'s Stories</h2>
   <section class="all-stories">
     {% if latest_stories %} 
-      {% for story in all_stories %}
+      {% for story in latest_stories %}
         {% include "./storyCard.html" with story=story%}
       {% endfor %}
     {% else %}
