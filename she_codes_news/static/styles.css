@@ -239,7 +239,7 @@ text-decoration: none;
     height: 4px;
     width: 100%;
     display: block;
-    background: var(--colour1);
+    background: var(--colour5);
     border-radius: 10px;
   }
   /* -- transform hamburger lines -- */
@@ -256,15 +256,15 @@ text-decoration: none;
   }
   /* -- change hamburger when checked -- */
   .checkbox input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
-    background: var(--colour1);
+    background: var(--colour5);
     transform: rotate(45deg);
   }
   .checkbox input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
-    background: var(--colour1);
+    background: var(--colour5);
     transform: scaleY(0);
   }
   .checkbox input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
-    background: var(--colour1);
+    background: var(--colour5);
     transform: rotate(-45deg);
   }
   /* ------------------ END OF HEADER ------------------ */
@@ -430,7 +430,7 @@ footer a:hover {
     }
 
     .story-card {
-      width: 25vw;
+      width: 45vw;
     }
 }
   /* ------ query for constrained-contianer in desktop ------ */
