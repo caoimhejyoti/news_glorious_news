@@ -15,6 +15,11 @@ class StoryForm(ModelForm):
         model = NewsStory
         #if you don't want the user to change the publish date, you would remove it from this field. 
         fields = ['title', 'pub_date', 'image','content']
+        labels = {
+            'pub_date':"Publishing Date:",
+            'image':"Image URL:",
+            "content":"Your story:",
+        }
         widgets = {
             'pub_date': forms.DateInput(
                 format="%m/%d/%Y",
@@ -23,7 +28,8 @@ class StoryForm(ModelForm):
                     "placeholder": "Select a date",
                     "type": 'date'
                 }
-            )
+            ),
+            'content': Textarea(),
         }
 
 class CommentForm(ModelForm):

@@ -113,7 +113,7 @@
 button,
 .button {
     padding: 0.8rem;
-    /* background-image: var(--crumble); */
+    background-image: var(--crumble);
     background-color: var(--colour3);
     color: var(--colour4);
     border: none;
@@ -414,7 +414,28 @@ a {
 
 /* ------------------ END PROFILE PAGE ------------------ */
 
-/* ------------------ END OF MAIN ------------------ */
+/* ------------------ ADD STORY PAGE ------------------ */
+.add-story{
+  background-color: var(--colour1);
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  padding:0.5rem;
+}
+input, textarea{
+  width: 100%;
+}
+/* ------------------ END STORY PAGE ------------------ */
+
+/* ------------------ LOGIN PAGE ------------------ */
+.login{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--colour4);
+}
+/* ------------------ END LOGIN PAGE ------------------ */
 
 /* ------------------ Footer ------------------ */
 footer {
