@@ -22,14 +22,17 @@
   </article>
 </section>
 </br>
-{% if request.user.is_authenticated %}
-  <section class="comment-form">
-    <h5> Have something to say? Let us know </h5>
+<section class="comment-form">
+  <h5> Have something to say? Let us know </h5>
+  {% if request.user.is_authenticated %}
     <form action = "{% url "news:addComment" story.id %}" method = "post">
       {% csrf_token %} 
       {{form.as_p}} 
       <input class="button-danger" type="submit" value="Submit">
     </form>
+  {% else %}
+    <a class="button" href="{% url 'login' %}?next={{request.path}}"> Login to add a comment</a>
+  {% endif %}
   </section>
   <section class="comment-display">
     <h5>Comments</h5>
@@ -43,7 +46,6 @@
     <p>There are no comments yet - add yours above.</p>
   {% endif %}
   </section>
-{% endif %}
 </br>
 <a class="button" href="{% url 'news:authorFilter' story.author %}">More stories by {{story.author}}</a>
 
