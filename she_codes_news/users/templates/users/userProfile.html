@@ -3,13 +3,13 @@
 
 {% block content %}
 <section class="user-card">
-    <h2>{{ user.first_name }} {{ user.last_name }}</h2> {% comment %} FIXME: not rendering {% endcomment %}
     <section class="user-info">
         <div>
             {% load static %}
             <img class="user-icon" src="{% static "../static/assets/branding/News_Glorious_News_USER.png" %}">
         </div>
         <div>
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
             <p>Username</p>
             <h4>{{ user.username }}</h4>
             <p>Email</p>
@@ -17,8 +17,10 @@
             <p>Date joined</p>
             <h4>{{ user.date_joined }}</h4>
         </div>
-        {% comment %} <a class="button-success" href="{% url "users:updateUser" %}">Update User information</a> {% endcomment %}
-
+        <section class='edit-btns'>
+            <a class='button-success' href= "{% url 'users:updateUser' request.user.id %}">Update</a>
+            <a class='button-danger' href= "{% url 'users:deleteUser' request.user.id %}">Delete</a>
+        </section>
     </section>
 </section>
 <br>
