@@ -432,6 +432,14 @@ input, textarea{
 }
 /* ------------------ END STORY PAGE ------------------ */
 
+/* ------------------ UPDATE PAGE ------------------ */
+.update-story{
+  padding: 1rem;
+  background-color: var(--colour1);
+}
+
+/* ------------------ END UPDATE PAGE ------------------ */
+
 /* ------------------ LOGIN PAGE ------------------ */
 .login{
   padding: 1rem;
