@@ -431,13 +431,15 @@ input, textarea{
 }
 /* ------------------ END STORY PAGE ------------------ */
 
-/* ------------------ UPDATE PAGE ------------------ */
-.update-story{
+/* ------------------ UPDATE PAGES ------------------ */
+.update-story, .add-user{
   padding: 1rem;
   background-color: var(--colour1);
 }
 
-/* ------------------ END UPDATE PAGE ------------------ */
+
+
+/* ------------------ END UPDATE PAGES ------------------ */
 
 /* ------------------ LOGIN PAGE ------------------ */
 .login{

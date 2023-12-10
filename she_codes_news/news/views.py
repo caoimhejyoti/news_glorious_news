@@ -66,7 +66,7 @@ class UpdateStoryView(LoginRequiredMixin, generic.UpdateView):
     fields = ['title', 'pub_date', 'image','content']
     success_url=reverse_lazy('news:index')
 
-# ------------ FIXME: Delete functionality -------------
+# ------------ Delete functionality -------------
 class DeleteStoryView(LoginRequiredMixin, generic.DeleteView):
     model= NewsStory
     template_name = 'news/deleteStory.html'

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="update-story">
+    <h2>Delete Account</h2>
+    <p>Are you sure, we would hate to see you go! This is irreversible - the worst of options!</p>
+    <form class="form" action = "" method = "post">
+        {% csrf_token %} 
+        {{form.as_p}}
+        <input class='button-success' type="submit" value="Delete">
+    </form>
+</section>
+{% endblock content %}
