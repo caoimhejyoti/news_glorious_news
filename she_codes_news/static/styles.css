@@ -164,6 +164,10 @@ button,
     background-color: var(--colour3);
     color: var(--colour1);
 }
+
+.edit-btns{
+  margin: 1rem;
+}
 /* ------------------ end of buttons ------------------ */
 
 /* ------------------ Header ------------------ */
@@ -359,7 +363,6 @@ a {
 
 .story-card img {
   width: 100%;
-  height: 100px;
   object-fit: cover;
 }
 
@@ -427,6 +430,16 @@ input, textarea{
   width: 100%;
 }
 /* ------------------ END STORY PAGE ------------------ */
+
+/* ------------------ UPDATE PAGES ------------------ */
+.update-story, .add-user{
+  padding: 1rem;
+  background-color: var(--colour1);
+}
+
+
+
+/* ------------------ END UPDATE PAGES ------------------ */
 
 /* ------------------ LOGIN PAGE ------------------ */
 .login{

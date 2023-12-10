@@ -25,6 +25,7 @@ class IndexView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['latest_stories'] = NewsStory.objects.all().order_by("-pub_date")[:2]
+        context['all_stories'] = NewsStory.objects.all().order_by("-pub_date")[2:]
         return context
 
 class StoryView(generic.DetailView):
@@ -58,6 +59,18 @@ class AddStoryView(LoginRequiredMixin, generic.CreateView):
     #         form = ImageForm()
     #     return render(request, "template/gallery.html", {"form": form})
 
+# ------------ Update functionality -------------
+class UpdateStoryView(LoginRequiredMixin, generic.UpdateView):
+    model= NewsStory
+    template_name = 'news/updateStory.html'
+    fields = ['title', 'pub_date', 'image','content']
+    success_url=reverse_lazy('news:index')
+
+# ------------ Delete functionality -------------
+class DeleteStoryView(LoginRequiredMixin, generic.DeleteView):
+    model= NewsStory
+    template_name = 'news/deleteStory.html'
+    success_url=reverse_lazy('news:index')
 
 # ------------ FIXME: Search functionality -------------
 def search_feature(request):

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<section class="add-user">
     <h2>Create Account</h2>
     <form method="post">
         {% csrf_token %}
@@ -10,5 +11,5 @@
     <br>
     <p>Already have an account - don't worry!
     <a class="button" href="{% url 'login' %}">Login</a>
-
+</section>
 {% endblock %}

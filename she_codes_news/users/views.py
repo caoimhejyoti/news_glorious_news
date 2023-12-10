@@ -1,3 +1,4 @@
+from audioop import reverse
 from typing import Any
 from django.db import models
 from django.urls import reverse_lazy
@@ -30,4 +31,19 @@ class UserProfileView(LoginRequiredMixin, generic.DetailView):
         context = super().get_context_data(**kwargs)
         context['authored_stories'] = NewsStory.objects.filter(author=self.kwargs['pk']) 
         return context
-        
+    
+
+# ------------ Update functionality -------------
+class UpdateUserView(LoginRequiredMixin, generic.UpdateView):
+    model= CustomUser
+    template_name = 'users/updateUser.html'
+    fields = ['username', 'email', 'first_name', 'last_name']
+
+    def get_success_url(self):
+        return reverse_lazy('users:userProfile', kwargs={'pk': self.object.id})
+
+# ------------ Delete functionality -------------
+class DeleteUserView(LoginRequiredMixin, generic.DeleteView):
+    model= CustomUser
+    template_name = 'users/deleteUser.html'
+    success_url=reverse_lazy('users:createAccount')
