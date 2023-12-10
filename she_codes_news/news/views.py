@@ -59,6 +59,18 @@ class AddStoryView(LoginRequiredMixin, generic.CreateView):
     #         form = ImageForm()
     #     return render(request, "template/gallery.html", {"form": form})
 
+# ------------ Update functionality -------------
+class UpdateStoryView(LoginRequiredMixin, generic.UpdateView):
+    model= NewsStory
+    template_name = 'news/updateStory.html'
+    fields = ['title', 'pub_date', 'image','content']
+    success_url=reverse_lazy('news:index')
+
+# ------------ FIXME: Delete functionality -------------
+class DeleteStoryView(LoginRequiredMixin, generic.DeleteView):
+    model= NewsStory
+    template_name = 'news/deleteStory.html'
+    success_url=reverse_lazy('news:index')
 
 # ------------ FIXME: Search functionality -------------
 def search_feature(request):

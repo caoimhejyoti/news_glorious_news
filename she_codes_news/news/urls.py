@@ -10,4 +10,6 @@ urlpatterns = [
     path('search/', views.search_feature, name='search-view'),
     path('<int:pk>/comment', views.AddCommentView.as_view(), name='addComment'),
     path('author/<str:username>', views.AuthorView.as_view(), name='authorFilter'),
+    path('edit/<int:pk>/', views.UpdateStoryView.as_view(), name='updateStory'),
+    path('edit/<int:pk>/delete', views.DeleteStoryView.as_view(), name='deleteStory'),
 ]
