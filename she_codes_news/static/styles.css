@@ -164,6 +164,10 @@ button,
     background-color: var(--colour3);
     color: var(--colour1);
 }
+
+.edit-btns{
+  margin: 1rem;
+}
 /* ------------------ end of buttons ------------------ */
 
 /* ------------------ Header ------------------ */

@@ -1,4 +1,4 @@
-<div class="story-card" id="story-card-{{ position }}">
+<section class="story-card" id="story-card-{{ position }}">
     <a href="{% url 'news:story' story.id %}">
     {% if story.image %}
         <img src="{{ story.image }}" />
@@ -10,12 +10,19 @@
             <img src="https://picsum.photos/600">
         {% endif %}
     {% endif %}
-        <div class="story-card-text">
+        <section class="story-card-text">
             <h3>{{ story.title }}</h3>
             <a href= "{% url 'news:authorFilter' story.author %}">
                 <h4>{{ story.author }}</h4>
             </a>
             <h4>{{ story.pub_date }}</h4>
-        </div>
+            <section class='edit-btns'>
+            {% if story.author == request.user %}
+            <a class='button-success' href= "{% url 'news:updateStory' story.id %}">Update</a>
+            <a class='button-danger' href= "{% url 'news:deleteStory' story.id %}">Delete</a>
+            {% endif %}
+        </section>
+        </section>
+        
     </a>
-</div>
+</section>
