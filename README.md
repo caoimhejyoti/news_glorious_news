@@ -12,7 +12,7 @@
 
 ---
 
-[About](#about) ✦ [Project Requirements](#project-requirements) ✦ [Features](#features) ✦ [Resources](#resources) ✦ [License](#license) ✦ [Contact](#contact)
+[About](#about) ✦ [How To Run This Code](#how-to-run-this-code) ✦ [Database Schema](#database-schema) ✦ [Features](#features) ✦ [Resources](#resources) ✦ [License](#license) ✦ [Contact](#contact)
 
 ---
 
@@ -54,7 +54,7 @@ Starter code can be found [here](https://github.com/SheCodesAus/plus-django-news
 8. Enjoy browsing the stories.
 
 
-## Database Schema!
+## Database Schema
 ![News Glorious News Database Schema](assets/ngn_database_schema.png)
 
 ## Features
